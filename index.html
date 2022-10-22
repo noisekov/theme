@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monq-digital</title>
+<script defer src="main.f5402f6e23309725127f.js"></script></head>
+    <body class="body">
+        <section class="preferences container">
+            <div class="preferences__wrap">
+                <h1 class="preferences__title mb10">Preferences</h1>
+                <p class="preferences__subtitle mb32">
+                    On this page you can configure the main system parameters available for customization
+                </p>
+                <div class="form mb24">
+                    <p class="form__text">Company Title</p>
+                    <input class="form__input" type="text" value="Star and Moon">
+                </div>
+                <div class="form mb24">
+                    <p class="form__text">First Day</p>
+                    <div id="dropdown">
+                        <button class="dropdown__button">Monday</button>
+                        <ul class="dropdown__list">
+                            <li class="dropdown__list-item" data-value="mon">Monday</li>
+                            <li class="dropdown__list-item" data-value="sun">Sunday</li>
+                            <li class="dropdown__list-item" data-value="syst">System</li>
+                        </ul>
+                        <input  class="dropdown__input" type="hidden" value="">
+                    </div>
+                </div>
+                <div class="form mb24">
+                    <p class="form__text">Container Width</p>
+                    <div class="dropdown-second">
+                        <button class="dropdown__button">Fixed</button>
+                    </div>
+                </div>
+                <div class="form mb24">
+                    <p class="form__text">Homepage</p>
+                    <div class="dropdown-third">
+                        <button class="dropdown__button">Starred Projects</button>
+                    </div>
+                </div>
+                <div class="form mb24">
+                    <p class="form__text">Indent Size</p>
+                    <input class="form__input" type="text" placeholder="Default">
+                </div>
+                <div class="form mb24">
+                    <p class="form__text">Personal Code</p>
+                    <div class="form-wrapper">
+                        <div class="form__input-number-wrap">
+                            <input class="form__input-number" type="number" id="first-form" value="1645">
+                            <span class="form__input-number--sub">12 digits</span>
+                        </div>
+                        <span class="form__input-number-separate">-</span>
+                        <input class="form__input-number" type="number" value="1566">
+                        <span class="form__input-number-separate">-</span>
+                        <input class="form__input-number" type="number" value="1249">
+                    </div>
+                </div>
+                <div class="form-ratio mb32">
+                    <p class="form__text">Theme</p>
+                    <div class="flex-container">
+                        <label class='input'>
+                            <input class='input__radio input__radio--light' type='radio' name='theme' checked> Light
+                            <span class='input__span'></span>   
+                        </label>
+                        <label class='input'>
+                            <input class='input__radio input__radio--dark' type='radio' name='theme'> Dark
+                            <span class='input__span'></span>   
+                        </label>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button class="btn__apply">Apply and Save</button>
+                    <button class="btn__cancel">Cancel</button>
+                </div>
+            </div>
+        </section>
+        <footer class="footer container">
+            <div class="footer__block">
+                <p class="footer__block-text">2020-2022</p>
+                <a class="footer__block-rule" href="#">Terms of Service</a>
+                <span class="footer__block-text">and</span>
+                <a class="footer__block-rule" href="#">Conditions</a>
+            </div>
+        </footer>
+        <script src='assets/main.js'></script>
+    </body>
+</html>
