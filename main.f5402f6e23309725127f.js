@@ -10717,7 +10717,7 @@ formNumber.forEach(function (elemInput) {
     console.log(elemInput.value);
 
     if (elemInput.value.length > MAX_VALUE_INPUT) {
-      elemInput.value = MAX_VALUE_INPUT;
+      elemInput.value.length = MAX_VALUE_INPUT;
     }
   });
 });
