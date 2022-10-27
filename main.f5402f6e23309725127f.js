@@ -10714,8 +10714,10 @@ const formNumber = document.querySelectorAll('.form__input-number');
 const MAX_VALUE_INPUT = 4;
 formNumber.forEach(function (elemInput) {
   elemInput.addEventListener('input', function () {
+    console.log(elemInput.value);
+
     if (elemInput.value.length > MAX_VALUE_INPUT) {
-      elemInput.value = '';
+      elemInput.value = MAX_VALUE_INPUT;
     }
   });
 });
