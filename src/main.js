@@ -125,6 +125,7 @@ dropdown.forEach(dropwrapper => {
         dropButton.classList.toggle('rotate');
     });
 
+    
     //choose drop item
     dropListItem.forEach(dropItem => {
         dropItem.addEventListener('click', function(){
