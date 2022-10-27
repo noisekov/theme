@@ -231,6 +231,6 @@ document.addEventListener('DOMContentLoaded', () => {
             input.classList.add('dark');
         })
         btnCancel.classList.add('dark');
-        btnApply.classList.add('dark');
+        btnApply.classList.add('dark')
     }
 })
