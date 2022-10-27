@@ -23,16 +23,18 @@ const footerRule = document.querySelectorAll('.footer__block-rule');
 const inputSpan = document.querySelectorAll('.input__span');
 const input = document.querySelectorAll('.input');
 const btnCancel = document.querySelector('.btn__cancel');
-const dropList = document.querySelector('.dropdown__list');
 const formInput = document.querySelectorAll('.form__input');
 const formInputNumber = document.querySelectorAll('.form__input-number');
-const dropButton = document.querySelectorAll('.dropdown__button');
-const dropListItem = document.querySelectorAll('.dropdown__list-item');
 
 //btn Apply change theme
 btnApply.addEventListener('click', saveParams)
 
 function saveParams () {
+
+    const dropList = document.querySelectorAll('.dropdown__list');
+    const dropButton = document.querySelectorAll('.dropdown__button');
+    const dropListItem = document.querySelectorAll('.dropdown__list-item');
+
     if (document.querySelector(".input__radio--dark").checked) {
         preferencesBlock.classList.add('dark');
         bodyBlock.classList.add('dark');
@@ -64,7 +66,9 @@ function saveParams () {
         })
         btnCancel.classList.add('dark');
         btnApply.classList.add('dark');
-        dropList.classList.add('dark');
+        dropList.forEach(dropList => {
+            dropList.classList.add('dark');
+        })
         localStorage.setItem('theme', 'dark');
     }
     if (document.querySelector(".input__radio--light").checked) {
@@ -72,7 +76,9 @@ function saveParams () {
         bodyBlock.classList.remove('dark');
         footerBlock.classList.remove('dark');
         titleBlock.classList.remove('dark');
-        dropList.classList.remove('dark');
+        dropList.forEach(dropList => {
+            dropList.classList.remove('dark');
+        })
         footerText.forEach(text => {
             text.classList.remove('dark');
         })
@@ -105,33 +111,46 @@ function saveParams () {
 
 
 //custom dropdown select
-const dropInput = document.querySelector('.dropdown__input');
-//open drop and rotate arrow
-dropButton[0].addEventListener('click', function(){
-    dropList.classList.toggle('show');
-    dropButton[0].classList.toggle('rotate');
-});
-//choose drop item
-dropListItem.forEach(dropItem => {
-    dropItem.addEventListener('click', function(){
-        dropButton[0].innerText = this.innerText;
-        dropInput.value = this.dataset.value;
-        dropInput.value = localStorage.setItem('dropvalue', dropInput.value)
-        dropList.classList.remove('show');
-        dropButton[0].classList.remove('rotate');
+const dropdown = document.querySelectorAll('.dropdown');
+dropdown.forEach(dropwrapper => {
+
+    const dropInput = dropwrapper.querySelector('.dropdown__input');
+    const dropButton = dropwrapper.querySelector('.dropdown__button');
+    const dropList = dropwrapper.querySelector('.dropdown__list');
+    const dropListItem = dropList.querySelectorAll('.dropdown__list-item');
+
+    //open drop and rotate arrow
+    dropButton.addEventListener('click', function() {
+        dropList.classList.toggle('show');
+        dropButton.classList.toggle('rotate');
+    });
+
+    //choose drop item
+    dropListItem.forEach(dropItem => {
+        dropItem.addEventListener('click', function(){
+            dropButton.innerText = this.innerText;
+            dropInput.value = this.dataset.value;
+            dropInput.value = localStorage.setItem('dropvalue', dropInput.value)
+            dropList.classList.remove('show');
+            dropButton.classList.remove('rotate');
+        })
+    })
+    //hidden dropdown list when click document
+    document.addEventListener('click', function(evt) {
+        if(evt.target !== dropButton) {
+            dropList.classList.remove('show');
+            dropButton.classList.remove('rotate');
+        }
     })
 })
-//hidden dropdown list when click document
-document.addEventListener('click', function(evt) {
-    if(!evt.target.closest('.dropdown__list') && !evt.target.closest('.dropdown__button')) {
-        dropList.classList.remove('show');
-        dropButton[0].classList.remove('rotate');
-    }
-})
-
 
 //save params when reload page
 document.addEventListener('DOMContentLoaded', () => {
+
+    const dropList = document.querySelectorAll('.dropdown__list');
+    const dropButton = document.querySelectorAll('.dropdown__button');
+    const dropListItem = document.querySelectorAll('.dropdown__list-item');
+
     let data = localStorage.getItem('theme');
     let dateDrop = localStorage.getItem('dropvalue');
     //save params dropdown
@@ -149,7 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
         preferencesBlock.classList.remove('dark');
         bodyBlock.classList.remove('dark');
         footerBlock.classList.remove('dark');
-        dropList.classList.remove('dark');
+        dropList.forEach(dropList => {
+            dropList.classList.remove('dark');
+        })
         titleBlock.classList.remove('dark');
         dropButton.forEach(btn => {
             btn.classList.remove('dark');
@@ -179,7 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btnApply.classList.remove('dark');
     } else {
         preferencesBlock.classList.add('dark');
-        dropList.classList.add('dark');
+        dropList.forEach(dropList => {
+            dropList.classList.add('dark');
+        })
         bodyBlock.classList.add('dark');
         footerBlock.classList.add('dark');
         titleBlock.classList.add('dark');
